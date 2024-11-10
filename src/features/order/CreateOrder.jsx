@@ -41,12 +41,13 @@ function CreateOrder() {
 
   return (
     <div className="px-4 py-6">
-      <h2 className="mb-8 text-xl font-semibold">Ready to order? Let's go!</h2>
+      <h2 className="mb-8 text-xl font-semibold">
+        "Bereit zu bestellen? Los geht's!
+      </h2>
 
-      {/* <Form method="POST" action="/order/new"> */}
       <Form method="POST">
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
-          <label className="sm:basis-40">First Name</label>
+          <label className="sm:basis-40">Vorname:</label>
           <input
             className="input grow"
             type="text"
@@ -57,7 +58,7 @@ function CreateOrder() {
         </div>
 
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
-          <label className="sm:basis-40">Phone number</label>
+          <label className="sm:basis-40">Telefonnummer:</label>
           <div className="grow">
             <input className="input w-full" type="tel" name="phone" required />
             {formErrors?.phone && (
@@ -69,7 +70,7 @@ function CreateOrder() {
         </div>
 
         <div className="relative mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
-          <label className="sm:basis-40">Address</label>
+          <label className="sm:basis-40">Adresse:</label>
           <div className="grow">
             <input
               className="input w-full"
@@ -96,7 +97,7 @@ function CreateOrder() {
                   dispatch(fetchAddress());
                 }}
               >
-                Get position
+                Position abrufen
               </Button>
             </span>
           )}
@@ -112,7 +113,7 @@ function CreateOrder() {
             onChange={(e) => setWithPriority(e.target.checked)}
           />
           <label htmlFor="priority" className="font-medium">
-            Want to yo give your order priority?
+            Möchten Sie Ihrer Bestellung Vorrang geben?
           </label>
         </div>
 
@@ -149,12 +150,10 @@ export async function action({ request }) {
     priority: data.priority === 'true',
   };
 
-  console.log(order);
-
   const errors = {};
   if (!isValidPhone(order.phone))
     errors.phone =
-      'Please give us your correct phone number. We might need it to contact you.';
+      'Bitte geben Sie uns Ihre korrekte Telefonnummer. Wir könnten sie benötigen, um Sie zu kontaktieren.';
 
   if (Object.keys(errors).length > 0) return errors;
 

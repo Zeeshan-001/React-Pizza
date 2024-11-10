@@ -46,6 +46,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  console.log('ZQ');
   return <RouterProvider router={router} />;
 }
 

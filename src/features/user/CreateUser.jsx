@@ -19,21 +19,21 @@ function CreateUser() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <p className="mb-4 text-sm text-stone-600 md:text-base">
-        👋 Welcome! Please start by telling us your name:
+      <p className="mb-4 text-sm text-[#374151] md:text-base">
+        Bitte geben Sie zum Start Ihrer Bestellung Ihren Namen an.
       </p>
 
       <input
         type="text"
-        placeholder="Your full name"
+        placeholder="Ihr vollständiger Name"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        className="input mb-8 w-72"
+        className="input mb-8 w-72 border border-[#0284c7] focus:ring-2 focus:ring-[#0284c7]"
       />
 
       {username !== '' && (
         <div>
-          <Button type="primary">Start ordering</Button>
+          <Button type="primary">Bestellung starten</Button>
         </div>
       )}
     </form>
